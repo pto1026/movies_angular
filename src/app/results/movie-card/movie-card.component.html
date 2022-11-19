@@ -1,8 +1,10 @@
 <div *ngIf="result" class="relative">
-  <app-image *ngIf="imageUrl" [url]="imageUrl"></app-image>
-  <div *ngIf="!imageUrl">{{result.title}}</div>
-  <div class="absolute bg-violet-600 bottom-0 left-0 w-full h-1/4">
-    <h3 class="text-white font-bold mb-6">{{result.title}}</h3>
-    <span class="block text-white absolute bottom-3 right-6">{{result.popularity}}</span>
-  </div>
+  <a [routerLink]="link" class="no-underline decoration-0 text-gray-800">
+    <app-image *ngIf="imageUrl" [url]="imageUrl"></app-image>
+    <div *ngIf="!imageUrl">{{result.title}}</div>
+    <div class="absolute bg-violet-600 bottom-0 left-0 w-full h-1/4">
+      <h3 class="text-white font-bold mb-6">{{result.title}}</h3>
+      <span class="block text-white absolute bottom-3 right-6">{{result.popularity}}</span>
+    </div>
+  </a>
 </div>

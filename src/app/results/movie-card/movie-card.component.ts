@@ -10,6 +10,7 @@ import {environment} from "../../../environments/environment";
 export class MovieCardComponent implements OnInit, OnChanges {
   @Input() result!: Result;
   imageUrl!: string;
+  link!: string;
 
   constructor() {
   }
@@ -18,7 +19,8 @@ export class MovieCardComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['result'].firstChange && changes['result'].currentValue.poster_path) this.imageUrl = `${environment.gridPhotoUrl}${changes['result'].currentValue.poster_path}`
+    if (changes['result'].firstChange && changes['result'].currentValue.poster_path) this.imageUrl = `${environment.gridPhotoUrl}${changes['result'].currentValue.poster_path}`;
+    if (changes['result'].firstChange) this.link = `/movie/${this.result.id}`;
   }
 
 }

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {environment} from "../environments/environment";
-import axios from "axios";
 import {HttpClient} from "@angular/common/http";
 import Results from "./results/results";
+import Details from "./movie/details";
 
 @Injectable({
   providedIn: 'root'
@@ -32,12 +32,10 @@ export class MovieSearchService {
     });
   }
 
-  async getMovie(id: number) {
-    try {
-      const response = await axios.get(`${environment.url}/3/movie/${id}?api_key=${environment.key}`);
-      return response.data;
-    } catch (e) {
-      console.error(e)
-    }
+  getMovie(id: number) {
+    return this.http.get<Details>(`${environment.url}/3/movie/${id}?api_key=${environment.key}`, {
+      observe: 'body',
+      responseType: 'json'
+    });
   }
 }
