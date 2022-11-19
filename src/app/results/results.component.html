@@ -1,0 +1,12 @@
+<div *ngIf="data" class="grid grid-cols-2 gap-6 p-6">
+  <app-movie-card *ngFor="let result of data.results" [result]="result"></app-movie-card>
+</div>
+<div class="flex justify-center items-center" *ngIf="data">
+  <button class="p-4 rounded border-0 bg-gray-100 text-violet-600" *ngIf="data.page > 1"
+          (click)="searchByPage.emit(data.page-1)"><
+  </button>
+  <div>{{data.page}}</div>
+  <button class="p-4 rounded border-0 bg-gray-100 text-violet-600" *ngIf="data.total_pages !== data.page"
+          (click)="searchByPage.emit(data.page+1)">>
+  </button>
+</div>

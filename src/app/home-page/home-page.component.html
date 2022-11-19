@@ -1,0 +1,2 @@
+<app-search-bar (searched)="$event !== '' ? search($event) : getTrending()"></app-search-bar>
+<app-results [data]="data" (searchByPage)="!substr ? getTrending($event) : searchPage(substr, $event)"></app-results>

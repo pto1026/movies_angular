@@ -1,0 +1,6 @@
+<form action="#" method="post" class="relative" (submit)="$event.preventDefault()">
+<input class="w-11/12 h-20 rounded text-gray-800 bg-gray-100 outline-0 border-2 border-blue-400 block text-4xl mx-auto my-6" type="text"
+       #searchBox (keydown.enter)="flashSubmit(); searched.emit(searchBox.value);"/>
+  <button id="search_button" class="py-2 px-4 my-2 flex justify-center items-center absolute top-0 right-16 bottom-0 rounded-full text-2xl text-violet-600 accent-violet-100 outline-0 border-violet-100 hover:border-violet-700 active:border-violet-700 hover:text-white active:text-white hover:bg-violet-400 active:bg-violet-400"
+          type="button" (click)="$event.preventDefault(); searched.emit(searchBox.value)">Search</button>
+</form>
