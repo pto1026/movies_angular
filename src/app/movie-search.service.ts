@@ -32,7 +32,7 @@ export class MovieSearchService {
     });
   }
 
-  getMovie(id: number) {
+  getMovie(id: string) {
     return this.http.get<Details>(`${environment.url}/3/movie/${id}?api_key=${environment.key}`, {
       observe: 'body',
       responseType: 'json'

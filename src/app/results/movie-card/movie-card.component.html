@@ -1,10 +1,10 @@
-<div *ngIf="result" class="relative">
+<div *ngIf="result" class="relative border-4 border-violet-300 rounded-lg shadow shadow-gray-300">
   <a [routerLink]="link" class="no-underline decoration-0 text-gray-800">
     <app-image *ngIf="imageUrl" [url]="imageUrl"></app-image>
-    <div *ngIf="!imageUrl">{{result.title}}</div>
-    <div class="absolute bg-violet-600 bottom-0 left-0 w-full h-1/4">
-      <h3 class="text-white font-bold mb-6">{{result.title}}</h3>
-      <span class="block text-white absolute bottom-3 right-6">{{result.popularity}}</span>
+    <div *ngIf="!imageUrl">No Image</div>
+    <div class="absolute bg-violet-600 left-0 w-full h-40 rounded-bl-sm rounded-br-sm bg-opacity-30" [class.rounded-tl-sm]="!imageUrl" [class.rounded-tr-sm]="!imageUrl" [class.bottom-0]="imageUrl" [class.top-0]="!imageUrl">
+      <h3 class="text-white font-bold mb-6 pt-2 pl-4">{{result.title}}</h3>
+      <span class="block text-white absolute bottom-3 right-6">{{result.vote_average}} average rating ({{result.vote_count}} total votes)</span>
     </div>
   </a>
 </div>

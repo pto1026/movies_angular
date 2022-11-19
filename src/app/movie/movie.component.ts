@@ -15,6 +15,7 @@ export class MovieComponent implements OnInit {
     .pipe(
       map((params: ParamMap) => params.get('id'))
     )
+  id!: string;
 
   constructor(private movieSearch: MovieSearchService, private route: ActivatedRoute) { }
 
@@ -23,7 +24,8 @@ export class MovieComponent implements OnInit {
   }
 
   getMovie(): void {
-    this.movieSearch.getMovie(Number(this.id$)).subscribe((data: Details) => this.data = data)
+    this.id$.subscribe(id => this.id = id!)
+    this.movieSearch.getMovie(this.id).subscribe((data: Details) => this.data = data)
 
   }
 }
